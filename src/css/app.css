@@ -1,0 +1,149 @@
+body {
+  /* margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 10%; */
+  /* font-family: "Open Sans", sans-serif; */
+  font-family: "Avant Garde", Avantgarde, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, serif;
+  background-color: #F8F5F2;
+}
+
+label {
+  display: inline-block;
+  /* font-family: "Lucida Console", sans-serif, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, serif; */
+  /* width: 150px; */
+}
+
+input {
+  width: 500px;
+  padding: 5px;
+  font-size: 16px;
+  font-family: "Courier New", sans-serif, "FangSong", "仿宋", STFangSong, "华文仿宋", serif；
+}
+
+button {
+  font-size: 16px;
+  padding: 5px;
+  font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, serif;
+
+}
+
+h1, h2 {
+  /* display: inline-block; */
+  vertical-align: middle;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  /* color: #AAA; */
+  font-size: 32px;
+}
+
+h3 {
+  font-weight: normal;
+  /* color: #AAA; */
+  font-size: 24px;
+}
+
+.black {
+  color: black;
+}
+
+#balance {
+  color: black;
+}
+
+.hint {
+  color: #666;
+}
+
+.dropdown-title {
+    display: block;
+    padding: 10px 15px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.nav-item {
+    color: #ffffff;
+}
+
+.nav-link {
+    color: #ffffff;
+}
+
+.nav-issuer {
+    background-color: #426E86;
+}
+
+.btn-issuer {
+    background-color: #426E86;
+    color: #ffffff;
+    border-color: #426E86;
+}
+
+
+.nav-investor {
+    background-color: #F9BA32;
+}
+
+.btn-investor {
+    background-color: #F9BA32;
+    color: #ffffff;
+    border-color: #F9BA32;
+}
+
+.bg-dark-theme {
+    background-color: #426E86;
+    color: #ffffff;
+}
+
+.bg-light-theme {
+    background-color: #F9BA32;
+    color: #ffffff;
+}
+
+.bg-dark {
+    background-color: #2F3131;
+    color: #ffffff;
+}
+
+.bg-light {
+    background-color: #F8F5F2;
+}
+
+.title {
+    font-family: Verdana, sans-serif, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, serif;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+
+.sub-title {
+    font-family: "Helvetica Neue", Helvetica, "Microsoft YaHei", 微软雅黑, STXihei, 华文细黑, serif;
+    font-weight: bold;
+    color: #426E86;
+}

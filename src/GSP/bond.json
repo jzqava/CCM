@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Dec18 Zero Coupon Bond",
+    "yield": 8.51,
+    "issueDate": "6/1/2018",
+    "maturityDate": "12/1/2018",
+    "price": 96
+  },
+  {
+    "id": 2,
+    "name": "Jan19 Zero Coupon Bond",
+    "yield": 7.39,
+    "issueDate": "7/1/2018",
+    "maturityDate": "1/1/2019",
+    "price": 96.5
+  },
+  {
+    "id": 3,
+    "name": "Feb19 Zero Coupon Bond",
+    "yield": 10.80,
+    "issueDate": "8/1/2018",
+    "maturityDate": "2/1/2019",
+    "price": 95
+  },
+  {
+    "id": 4,
+    "name": "Aug19 Zero Coupon Bond",
+    "yield": 6.95,
+    "issueDate": "8/1/2018",
+    "maturityDate": "8/1/2019",
+    "price": 93.5
+  },
+  {
+    "id": 5,
+    "name": "Jul19 Zero Coupon Bond",
+    "yield": 8.696,
+    "issueDate": "7/1/2018",
+    "maturityDate": "7/1/2019",
+    "price": 92
+  }
+]

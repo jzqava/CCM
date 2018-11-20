@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+
+      <div id="header"></div>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script>
+      $("#header").load("header.html");
+      </script>
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="container">
+
+        <div name="title-div" class="col-xs-12 col-sm-8 col-sm-push-2">
+          <br/>
+          <h1 class="text-center">Coin Capital Markets Products Demo</h1>
+          <hr/>
+        </div>
+
+        <div name="intro-div">
+          <div class="row mb-5">
+            <div class="col-md-5">
+              <br/><br/><br/><br/>
+              <h2 style="float:right;">Have assets to sell?</h2>
+              <p style="float:right;">Why not become an Issuer at Coin Capital Markets</p>
+              <br/><br/><br/><br/><br/>
+              <a href="#products" class="btn btn-default btn-issuer" style="float:right;" type="button">Start Issuing</a>
+            </div>
+            <div class="col-md-7 align-self-center">
+              <img width="600" height="360" src="icon\issuer-gif-1.gif">
+            </div>
+          </div>
+          <br/><br/>
+          <div class="row">
+            <div class="col-md-8">
+              <img width="700" height="280" src="icon\investor-gif-1.gif">
+            </div>
+            <div class="col-md-4">
+              <br/><br/><br/>
+              <h2>Have money to invest?</h2>
+              <p class="">Why not become an Investor at Coin Capital Markets</p>
+              <br/>
+              <a href="#products" class="btn btn-default btn-investor" type="button">Start Investing</a>
+            </div>
+          </div>
+        </div>
+
+        <br/><br/><br/><br/>
+
+        <div name="product-div">
+          <a name="products"></a>
+           <div class="row text-center">
+             <div class="col-md-12">
+               <h1 class="mb-4">Available Products</h1>
+               <br/>
+               <div class="row">
+                 <div class="col-md-4">
+                    <img width="60" height="60" src="icon\GSP.png">
+                 </div>
+                 <div class="col-md-4">
+                    <img width="50" height="50" src="icon\SLF.png">
+                 </div>
+                 <div class="col-md-4">
+                    <img width="50" height="50" src="icon\IDX.png">
+                 </div>
+               </div>
+
+               <div class="row">
+                 <div class="col-md-4">
+                   <div class="row mb-3">
+                      <h5><b>Structured Notes</b></h5>
+                      <p>Principal Protected Notes or Non-Principal Protected Notes, composed by bonds and options. Gives a nonlinear investment return.</p>
+                      <a href="GSP.html" class="btn btn-default btn-issuer" type="button">Issue This</a>
+                      <br/><br/>
+                      <a href="GSP.html" class="btn btn-default btn-investor" type="button">Invest This</a>
+                   </div>
+                 </div>
+                 <div class="col-md-4">
+                   <div class="row mb-3">
+                      <h5><b>Structured Leverage Funds</b></h5>
+                      <p>Consists of different tiers. Fixed Income Tier is suitable for risk-averse investors while Leveraged Equity Tier is for speculators. </p>
+                      <a href="SLF.html" class="btn btn-default btn-issuer" type="button" >Issue This</a>
+                      <br/><br/>
+                      <a href="SLF.html" class="btn btn-default btn-investor" type="button">Invest This</a>
+                   </div>
+                 </div>
+                 <div class="col-md-4">
+                   <div class="row mb-3">
+                      <h5><b>Index Funds</b></h5>
+                      <p>Offers passive investment on crypto markets. Similar to ETF in traditional financial world which tracks the value of a basket of assets.</p>
+                      <a href="IDX.html" class="btn btn-default btn-issuer" type="button">Issue This</a>
+                      <br/><br/>
+                      <a href="IDX.html" class="btn btn-default btn-investor" type="button">Invest This</a>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+        </div>
+
+        <br/><br/><br/><br/>
+
+    </div>
+
+    <div name="footer-div" class="bg-dark">
+      <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <h4>Email</h4>
+            <p>
+              <a href="mailto:info@coincapitalmarkets.io" class="text-white">
+                <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>info@coincapitalmarkets.io</a>
+            </p>
+            <h4>Website</h4>
+            <p>
+              <a href="https://coincapitalmarkets.io" class="text-white">
+                <i class="fa d-inline mr-3 text-secondary fa-envelope-o"></i>coincapitalmarkets.io</a>
+            </p>
+          </div>
+        </div>
+        <br/>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <p>© Copyright 2018 Coin Capital Markets - All rights reserved.</p>
+          </div>
+        </div>
+    </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="http://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/web3.min.js"></script>
+  <script src="../js/truffle-contract.js"></script>
+ <script src="../js/App.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    $(window).load(function() {
+      App.init();
+    });
+  });
+
+  </script>
+  </body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <div id="header"></div>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script>
+      $("#header").load("header.html");
+      </script>
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+  <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <br/>
+          <h4 class="text-center title">Coin Capital Markets</h4>
+          <h1 class="text-center title">Structured Leverage Fund</h1>
+          <h4 id="user" class="text-center title"> Issuer View </h4>
+          <hr/>
+        </div>
+      </div>
+
+  <div id="Pre-Issuance" style="display: none;" >
+    <h1 class="sub-title">Note New Issuing</h1>
+    <br/><br/>
+
+    <label>Tier Data</label>
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+              <tr class="bg-dark-theme">
+                <th>Tier Type</th>
+                <th>Name</th>
+                <th>Weight</th>
+                <th>Commission</th>
+                <th>Interest Rate</th>
+              </tr>
+            </thead>
+            <tbody id="tier-data">
+              <tr id="FItier-data">
+                <td class="tier-type">Fixed Income Tier</td>
+                <td>
+                  <input type="Text" class="tier-name form-control" placeholder="Enter name for tier">
+                  </input>
+                </td>
+                <td>
+                  <input type="Text" class="tier-weight form-control" style="width:90%;display: inline-block;" placeholder="Enter weight in percentage">
+                </input> <span>%</span>
+                </td>
+                <td>
+                  <input type="Text" class="tier-commission form-control" style="width:90%;display: inline-block;" placeholder="Enter commission in percentage">
+                </input> <span>%</span>
+                </td>
+                <td>
+                  <input type="Text" class="tier-interest form-control" style="width:90%;display: inline-block;" placeholder="Enter interest in percentage">
+                </input> <span>%</span>
+                </td>
+              </tr>
+              <tr id="EQtier-data">
+                <td class="tier-type">Equity Tier</td>
+                <td>
+                  <input type="Text" class="tier-name form-control" placeholder="Enter name for tier">
+                  </input>
+                </td>
+                <td>
+                  <input type="Text" class="tier-weight form-control" style="width:90%;display: inline-block;" placeholder="Enter weight in percentage">
+                </input> <span>%</span>
+                </td>
+                <td>
+                  <input type="Text" class="tier-commission form-control" style="width:90%;display: inline-block;" placeholder="Enter commission in percentage">
+                </input> <span>%</span>
+                </td>
+                <td>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    <label>Fund Name</label>
+    <input type="Text" class="form-control" id="fundName" placeholder="Enter fund name" >
+    </input>
+    <br/><br/>
+
+    <label>Issue Date</label>
+    <input type="Date" class="form-control" id="fundIssueDate" placeholder="Enter fund issue date">
+    </input>
+    <br/><br/>
+
+    <label>Maturity</label>
+    <input type="Date" class="form-control" id="fundMaturityDate" placeholder="Enter fund maturity date">
+    </input>
+    <br/><br/>
+
+    <label>Underlying Name</label>
+    <input type="Text" class="form-control" id="fundUnderlying" placeholder="Enter the name of underlying index or asset" >
+    </input>
+    <br/><br/>
+
+    <label>Underlying Initial Price</label>
+    <input type="Text" class="form-control" id="fundInitialPx" placeholder="Enter the initial price of underlying" >
+    </input>
+    <br/><br/>
+
+    <label>Minimum Underlying Percentage</label>
+    <input type="Text" class="form-control" style="width:98%;display: inline-block;" id="fundMinLiqVal" placeholder="Enter the minimum percentage of underlying return before fund liquidates" >
+    </input> <span>%</span>
+    <br/><br/>
+
+    <label>Maximun Underlying Percentage</label>
+    <input type="Text" class="form-control" style="width:98%;display: inline-block;" id="fundMaxLiqVal" placeholder="Enter the maximun percentage of underlying return before fund liquidates" >
+    </input> <span>%</span>
+    <br/><br/>
+
+    <label>Units to Issue</label>
+    <input type="Text" class="form-control" id="fundAmount" placeholder="Enter unit in integer, e.g., 1000">
+    <br/><br/>
+
+    <button class="btn btn-default btn-SLF-create btn-issuer" type="button">Create Note</button>
+
+  </div>
+
+  <div id="Post-Issuance" style="display: none;">
+      <h1 class="sub-title">Issued Note</h1>
+      <div class="panel-body">
+        <img id="payoff" alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="display: none;"
+        src="SLF/payoff.JPG" data-holder-rendered="true">
+        <br/><br/>
+        <strong>Name</strong>: <span id="fund-name">0</span><br/>
+        <strong>Issuer</strong>: <span id="fund-issuer">0</span><br/>
+        <strong>Fund Unit Outstanding</strong>: <span id="fund-outstanding">0</span><br/>
+        <strong>Fixed Income Tier Unit Outstanding</strong>: <span id="fi-outstanding">0</span><br/>
+        <strong>Equity Tier Unit Outstanding</strong>: <span id="eq-outstanding">0</span><br/>
+        <strong>Fund NAV</strong>: <span id="fund-nav">0</span><br/>
+        <strong>Fixed Income Tier NAV</strong>: <span id="FI-nav">0</span><br/>
+        <strong>Equity Tier NAV</strong>: <span id="EQ-nav">0</span><br/>
+        <strong>Underlying</strong>: <span id="fund-underlying">x</span><br/>
+        <strong>Underlying Initial Price</strong>: <span id="fund-initial-px">0</span><br/>
+        <strong>Underlying Current Price</strong>: <span id="fund-current-px">0</span><br/>
+        <strong>Issue Date</strong>: <span id="fund-issuedate">0</span><br/>
+        <strong>Maturity Date</strong>: <span id="fund-maturitydate">0</span><br/>
+        <strong>Min Liquidate Percentage</strong>: <span id="fund-min-liq">0</span><span>%</span><br/>
+        <strong>Max Liquidate Percentage</strong>: <span id="fund-max-liq">0</span><span>%</span><br/>
+        <strong>Fund Status</strong>: <span id="fund-status">Issued</span><br/>
+        <div id="liq-only" style="display: none;">
+          <strong>Liquidate Date</strong>: <span id="liq-date">0</span><br/>
+          <strong>Liquidated Fund Value</strong>: <span id="liq-val">0</span><br/>
+          <strong>Liquidate Equity Tier Value</strong>: <span id="liq-eq-val">0</span><br/>
+        </div>
+        <br/>
+        <button class="btn btn-default btn-SLF-display" type="button">Refresh</button>
+      </div>
+      <br/><br/>
+
+   <div id="issuer-view" >
+      <h2>Issuer Panel</h2>
+      <div class="panel-body">
+        <label>Additional Amount of Note to Issue</label>
+        <input type="Text" id="fundAmountAdditional" class="form-control" placeholder="e.g., 95">
+        <br/>
+        <button class="btn btn-default btn-SLF-issue btn-issuer" type="button">Issue More</button>
+
+        <br/><br/>
+        <label>To Update Underlying Price</label>
+        <input type="Text" id="underlying-price" class="form-control" placeholder="Enter current price of underlying">
+        <br/>
+        <button class="btn btn-default btn-update-price btn-issuer" type="button">Update Price</button>
+
+        <br/><br/>
+        <label>Pay Contract</label>
+        <input type="Text" id="pay-contract" class="form-control" placeholder="Enter how much you want to pay contract">
+        <br/>
+        <button class="btn btn-default btn-pay-contract btn-issuer" type="button">Pay Contract</button>
+      </div>
+      <br/><br/>
+    </div>
+
+    <div id="investor-view" >
+      <h2>Investor Panel</h2>
+      <div class="panel-body">
+
+        <h3>Balance</h3>
+        <br/>
+        <strong>Tier </strong><strong id="tierfi-name"></strong><strong> Balance:</strong> <span id="fund-fibalance">0</span><br/>
+        <strong>Tier </strong><strong id="tiereq-name"></strong><strong> Balance:</strong> <span id="fund-eqbalance">0</span><br/>
+        <br/>
+        <button class="btn btn-default btn-SLF-balance btn-investor" type="button">Refresh</button>
+        <br/><br/>
+
+        <h3>Buy</h3>
+        <label>Tier to Buy</label>
+        <select id="tier-for-subscribe" class="tier-name form-control">
+        </select>
+        <label>Amount of Note to Buy</label>
+        <input type="Text" class="form-control" id="noteAmountSubscribe" placeholder="e.g., 50">
+        <br/>
+        <button class="btn btn-default btn-view-subscribe btn-investor" type="button">View Payable</button>
+        <strong>Payable</strong>: <span id="eth-subscribe">0</span><br/>
+        <br/>
+        <button class="btn btn-default btn-SLF-subscribe btn-investor" type="button">Buy</button>
+        <br/><br/>
+
+        <h3>Redeem</h3>
+        <label>Tier to Redeem</label>
+        <select id="tier-for-redeem" class="tier-name form-control">
+        </select>
+        <label>Amount of Note to Redeem</label>
+        <input type="Text" class="form-control" id="noteAmountRedeem" placeholder="e.g., 50">
+        <br/>
+        <button class="btn btn-default btn-view-redeem btn-investor" type="button">View Receivable</button>
+        <strong>Receivable</strong>: <span id="eth-redeem">0</span><br/>
+        <br/>
+        <button class="btn btn-default btn-SLF-redeem btn-investor" type="button">Redeem</button>
+        <br/><br/>
+
+
+        <h3>Transfer</h3>
+        <label>Tier to Send to Other Address</label>
+        <select id="tier-for-send" class="tier-name form-control">
+        </select>
+        <label>Amount of Note to Send</label>
+        <input type="Text" class="form-control" id="fundAmountSend" placeholder="e.g., 50">
+        <label>Address to Send</label>
+        <input type="Text" class="form-control" id="addressSend" placeholder="Address to send your note e.g., 0xF463B4cBd03961f0C71fB4cd40A3505D9a822cc9">
+        <br/>
+        <button class="btn btn-default btn-SLF-send btn-investor" type="button">Send</button>
+        <span>&emsp;</span><span id="send-status"></span>
+
+       </div>
+     </div>
+
+    </div>
+
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="http://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/web3.min.js"></script>
+  <script src="../js/truffle-contract.js"></script>
+  <script src="../SLF/SLFApp.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    $(window).load(function() {
+      SLFApp.init();
+    });
+  });
+
+  </script>
+  </body>
+</html>

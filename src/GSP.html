@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+      <div id="header"></div>
+      <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="js/bootstrap-toggle.min.js"></script>
+      <script>
+      $("#header").load("header.html");
+      </script>
+
+      <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+      <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+      <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+  </head>
+
+  <body>
+
+  <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-push-2">
+          <br/>
+          <h4 class="text-center title">Coin Capital Markets</h4>
+          <h1 class="text-center title">Structured Notes</h1>
+          <h4 id="user" class="text-center title"> Issuer View </h4>
+          <hr/>
+        </div>
+      </div>
+
+  <div id="Pre-Issuance" style="display: none;" >
+    <h1 class="sub-title">Note New Issuing</h1>
+    <br/><br/>
+
+    <div class="container" id="bondSelection">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="panel-title">Select a Zero Coupon Bond for Construction</h3>
+          <br/>
+          <table class="table table-striped">
+            <thead>
+              <tr class="bg-dark-theme">
+                <th>Bond Name</th>
+                <th>Yield</th>
+                <th>Issue Date</th>
+                <th>Maturity Date</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="bondRow">
+                <!-- bond LOAD HERE -->
+            </tbody>
+            <tbody id="bondTemplate" style="display: none;">
+              <tr>
+                <td class="bond-name">CAD Gov 5 Year</td>
+                <td class="bond-yield">2.3</td>
+                <td class="bond-issueDate">July 1 2018</td>
+                <td class="bond-maturity">July 1 2023</td>
+                <td class="bond-price">90</td>
+                <td>
+                  <button class="btn btn-default btn-select-bond btn-investor" type="button"
+                  data-name="0" data-yield=0 data-issuedate=0 data-maturity=0 data-price=0>
+                  Select
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="eoSelection">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="panel-title">Select a European Option for Construction</h3>
+            <br/>
+            <table class="table table-striped">
+              <thead>
+                <tr class="bg-dark-theme">
+                  <th>Option Name</th>
+                  <th>Call/Put</th>
+                  <th>Underlying</th>
+                  <th>Strike</th>
+                  <th>Expiration Date</th>
+                  <th>Price</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="eoRow">
+                  <!-- bond LOAD HERE -->
+              </tbody>
+              <tbody id="eoTemplate" style="display: none;">
+                <tr>
+                  <td class="eo-name">Bitcoin 8000 Call</td>
+                  <td class="eo-iscall">Call</td>
+                  <td class="eo-underlying">Bitcoin</td>
+                  <td class="eo-strike">8000</td>
+                  <td class="eo-expiration">July 1 2023</td>
+                  <td class="eo-price">100</td>
+                  <td>
+                    <button class="btn btn-default btn-select-eo btn-investor" type="button"
+                    data-name="0" data-iscall="0" data-underlying=0 data-strike=0 data-expiration=0 data-price=0>
+                    Select
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <br/><br/>
+
+    <div class="container" id="bondSelected">
+      <div class="row">
+        <div class="col-md-12">
+          <h3 class="panel-title">Zero Coupon Bond Selected</h3>
+          <br/>
+          <table class="table">
+            <thead>
+              <tr class = "bg-light-theme">
+                <th>Bond Name</th>
+                <th>Yield</th>
+                <th>Issue Date</th>
+                <th>Maturity Date</th>
+                <th>Price</th>
+                <th></th>
+                <th>Contract Size</th>
+                <th>Long/Short</th>
+              </tr>
+            </thead>
+            <tbody id="selectedBondRow">
+                <!--  selected Bond HERE -->
+            </tbody>
+            <tbody id="selectedBondTemplate" style="display: none;">
+              <tr>
+                <td class="bond-name">CAD Gov 5 Year</td>
+                <td class="bond-yield">2.3</td>
+                <td class="bond-issueDate">July 1 2018</td>
+                <td class="bond-maturity">July 1 2023</td>
+                <td class="bond-price">90</td>
+                <td>
+                  <button class="btn btn-default btn-remove-bond btn-issuer" type="button"
+                  data-name="0" data-yield=0 data-issuedate=0 data-maturity=0 data-price=0>
+                  Remove
+                  </button>
+                </td>
+                <td>
+                  <input type="Text" class="bond-size form-control" placeholder="Enter contract size in integer">
+                  </input>
+                </td>
+                <!-- <td>
+                  <form>
+                  <select class="form-control">
+                    <option>Long</option>
+                    <option>Short</option>
+                  </select>
+                  </form>
+                </td> -->
+                <!-- <td>
+                  <input type="checkbox" checked data-toggle="toggle" data-on="Long" data-off="Short">
+                </td> -->
+                <td>
+                  <div class="onoffswitch">
+                    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox bond-long" id="bondswitch" checked>
+                    <label class="onoffswitch-label" for="bondswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                    </label>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="eoSelected">
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="panel-title">European Option Selected</h3>
+            <br/>
+            <table class="table">
+              <thead>
+                <tr class = "bg-light-theme">
+                  <th>Option Name</th>
+                  <th>Call/Put</th>
+                  <th>Underlying</th>
+                  <th>Strike</th>
+                  <th>Expiration Date</th>
+                  <th>Price</th>
+                  <th></th>
+                  <th>Contract Size</th>
+                  <th>Long/Short</th>
+                </tr>
+              </thead>
+              <tbody id="selectedEuropeanOptionRow">
+                  <!-- selected european option HERE -->
+              </tbody>
+              <tbody id="selectedEOTemplate" style="display: none;">
+                <tr>
+                  <td class="eo-name">Bitcoin 8000 Call</td>
+                  <td class="eo-iscall">Call</td>
+                  <td class="eo-underlying">Bitcoin</td>
+                  <td class="eo-strike">8000</td>
+                  <td class="eo-expiration">July 1 2023</td>
+                  <td class="eo-price">100</td>
+                  <td>
+                    <button class="btn btn-default btn-remove-eo btn-issuer" type="button"
+                    data-name="0" data-iscall="0" data-underlying=0 data-strike=0 data-expiration=0 data-price=0>
+                    Remove
+                    </button>
+                  </td>
+                  <td>
+                    <input type="Text" class="eo-size form-control" placeholder="Enter contract size in integer">
+                    </input>
+                  </td>
+                  <!-- <td>
+                    <form>
+                    <select class="form-control">
+                      <option>Long</option>
+                      <option>Short</option>
+                    </select>
+                    </form>
+                  </td> -->
+                  <td>
+                    <div class="onoffswitch">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox eo-long" id="eoswitch" checked>
+                      <label class="onoffswitch-label" for="eoswitch">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    <label>Note Name</label>
+    <input type="Text" class="form-control" id="noteName" placeholder="Enter note name" >
+    </input>
+    <br/><br/>
+
+    <label>Issue Date</label>
+    <input type="Date" class="form-control" id="noteIssueDate" placeholder="Enter note issue date">
+    </input>
+    <br/><br/>
+
+    <label>Maturity</label>
+    <input type="Date" class="form-control" id="noteMaturityDate" placeholder="Enter note maturity date">
+    </input>
+    <br/><br/>
+
+    <label>Commission</label>
+    <input type="Text" class="form-control" id="noteCommission" placeholder="Enter commission in percentage,e.g., 10" >
+    </input>
+    <br/><br/>
+
+    <label>Units to Issue</label>
+    <input type="Text" class="form-control" id="noteAmount" placeholder="Enter unit in integer, e.g., 1000">
+    <br/><br/>
+
+    <button class="btn btn-default btn-GSP-create btn-issuer" type="button">Create Note</button>
+
+  </div>
+
+  <div id="Post-Issuance" style="display: none;">
+      <h1 class="sub-title">Issued Note</h1>
+      <div class="panel-body">
+        <img id="payoff" alt="140x140" data-src="holder.js/140x140" class="img-rounded img-center" style="display: none;"
+        src="GSP/PPN payoff.JPG" data-holder-rendered="true">
+        <br/><br/>
+        <strong>Name</strong>: <span id="note-name">0</span><br/>
+        <strong>Issuer</strong>: <span id="note-issuer">0</span><br/>
+        <strong>Unit Outstanding</strong>: <span id="note-outstanding">0</span><br/>
+        <strong>NAV</strong>: <span id="note-nav">0</span><br/>
+        <strong>Issue Date</strong>: <span id="note-issuedate">0</span><br/>
+        <strong>Maturity Date</strong>: <span id="note-maturitydate">0</span><br/>
+        <br/>
+        <button class="btn btn-default btn-GSP-display" type="button">Refresh</button>
+      </div>
+
+      <br/><br/>
+
+      <div id="issuer-view" >
+        <h2>Issuer Panel</h2>
+        <div class="panel-body">
+          <label>Additional Amount of Note to Issue</label>
+          <input type="Text" class="form-control" id="noteAmountAdditional" placeholder="e.g., 95">
+          <br/>
+          <button class="btn btn-default btn-GSP-issue btn-issuer" type="button">Issue More</button>
+
+          <br/><br/>
+          <h3 class="panel-title">Display Bond/Option to Update Price</h3>
+          <br/>
+          <button class="btn btn-default btn-content-display btn-issuer" type="button">Show Underlying</button>
+          <table id="GSP-bond" style="display: none;" class="table">
+            <thead>
+              <tr>
+                <th>Bond Name</th>
+                <th>Contract Size</th>
+                <th>Long/Short</th>
+                <th>New Price</th>
+              </tr>
+            </thead>
+            <tbody id="GSPbondRow">
+                <!-- bond LOAD HERE -->
+            </tbody>
+            <tbody id="GSPbondTemplate" style="display: none;">
+              <tr>
+                <td class="bond-name">CAD Gov 5 Year</td>
+                <td class="bond-size">1</td>
+                <td class="bond-long">Long</td>
+                <td>
+                  <input type="Text" class="bond-price form-control" placeholder="Enter updated Price">
+                  </input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table id="GSP-eo" style="display: none;" class="table">
+            <thead>
+              <tr>
+                <th>Option Name</th>
+                <th>Contract Size</th>
+                <th>Long/Short</th>
+                <th>New Price</th>
+              </tr>
+            </thead>
+            <tbody id="GSPeoRow">
+                <!-- bond LOAD HERE -->
+            </tbody>
+            <tbody id="GSPeoTemplate" style="display: none;">
+              <tr>
+                <td class="eo-name">CAD Gov 5 Year</td>
+                <td class="eo-size">1</td>
+                <td class="eo-long">Long</td>
+                <td>
+                  <input type="Text" class="eo-price form-control" placeholder="Enter updated Price">
+                  </input>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button class="btn btn-default btn-update-price btn-issuer" style="display:none;" type="button">Update Price</button>
+
+          <br/><br/>
+          <label>Pay Contract</label>
+          <input type="Text" id="pay-contract" class="form-control" placeholder="Enter how much you want to pay contract">
+          <br/>
+          <button class="btn btn-default btn-pay-contract btn-issuer" type="button">Pay Contract</button>
+        </div>
+        <br/><br/>
+      </div>
+
+      <div id="investor-view" >
+      <h2>Investor Panel</h2>
+      <div class="panel-body">
+        <h3>Balance</h3>
+        <strong>Your Balance:</strong> <span id="note-balance">0</span><br/>
+        <br/>
+        <button class="btn btn-default btn-GSP-balance btn-investor" type="button">Refresh</button>
+
+        <br/><br/>
+
+        <h3>Buy</h3>
+        <label>Amount of Note to Buy</label>
+        <input type="Text" class="form-control" id="noteAmountSubscribe" placeholder="e.g., 50">
+        <br/>
+        <button class="btn btn-default btn-view-subscribe btn-investor" type="button">View Payable</button>
+        <strong>Payable</strong>: <span id="eth-subscribe">0</span><br/><br/>
+        <button class="btn btn-default btn-GSP-subscribe btn-investor" type="button">Buy</button>
+        <br/><br/>
+
+        <h3>Redeem</h3>
+        <label>Amount of Note to Redeem</label>
+        <input type="Text" class="form-control" id="noteAmountRedeem" placeholder="e.g., 50">
+        <br/>
+        <button class="btn btn-default btn-view-redeem btn-investor" type="button">View Receivable</button>
+        <strong>Receivable</strong>: <span id="eth-redeem">0</span><br/><br/>
+        <button class="btn btn-default btn-GSP-redeem btn-investor" type="button">Redeem</button>
+        <br/><br/>
+
+        <h3>Transfer</h3>
+        <label>Amount of Note to Send</label>
+        <input type="Text" class="form-control" id="noteAmountSend" placeholder="e.g., 50">
+        <label>Address to Send</label>
+        <input type="Text" class="form-control" id="addressSend" placeholder="Address to send your note e.g., 0xF463B4cBd03961f0C71fB4cd40A3505D9a822cc9">
+        <br/>
+        <button class="btn btn-default btn-GSP-send btn-investor" type="button">Send</button>
+        <span>&emsp;</span><span id="send-status"></span>
+      </div>
+    </div>
+
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="http://momentjs.com/downloads/moment.min.js"></script>
+  <script src="https://momentjs.com/downloads/moment-timezone.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/web3.min.js"></script>
+  <script src="../js/truffle-contract.js"></script>
+  <script src="../GSP/GSPApp.js"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    $(window).load(function() {
+      GSPApp.init();
+    });
+  });
+
+  </script>
+  </body>
+</html>
